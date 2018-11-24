@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-import './App.css';
-import Nav from './Components/Nav';
-import NoteList from './Components/NoteList';
-import NoteForm from './Components/NoteForm';
+import './../App.css';
+import Nav from './Nav';
+import NoteList from './NoteList';
+import NoteForm from './NoteForm';
+import { noteData } from './FirebaseConnect';
 
 class App extends Component {
 	render() {
+		console.log(noteData);
 		return (
 			<div>
 				<Nav/>
