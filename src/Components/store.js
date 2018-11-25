@@ -7,7 +7,7 @@ const noteInitialState = {
 const allReducer = (state = noteInitialState, action) => {
     switch (action.type) {
         case 'ADD_DATA':
-            console.log('Connect with ADD_DATA Successfully')
+            console.log('Connect with ADD_DATA Successfully' + action.storeItem )
             return state
         default:
             return state
