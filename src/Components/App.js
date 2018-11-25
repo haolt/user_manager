@@ -7,7 +7,7 @@ import { noteData } from './FirebaseConnect';
 
 class App extends Component {
 	render() {
-		console.log(noteData);
+		console.log(noteData.once('value').then((snapshot) => console.log(snapshot.val()) ));
 		return (
 			<div>
 				<Nav/>

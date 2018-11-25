@@ -9,4 +9,6 @@ var config = {
   messagingSenderId: "475985844132"
 };
 
-export const noteData = firebase.initializeApp(config);
+// export const noteData = firebase.initializeApp(config);
+firebase.initializeApp(config);
+export const noteData = firebase.database().ref('note_manager');//noteData.val()
