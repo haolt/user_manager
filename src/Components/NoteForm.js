@@ -33,12 +33,14 @@ class NoteForm extends Component {
                     <div className="form-group">
                         <label htmlFor="title">Title</label>
                         <input type="text" name="title" id="title" className="form-control"
+                           defaultValue={this.props.editItem.title}
                            onChange= { (event) => this.isChange(event)} 
                         />
                     </div>
                     <div className="form-group">
                         <label htmlFor="content">Content</label>
                         <input type="text" name="content" id="content" className="form-control"
+                            defaultValue={this.props.editItem.content}
                             onChange= { (event) => this.isChange(event)} 
                         />
                     </div>
@@ -53,7 +55,7 @@ class NoteForm extends Component {
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        testConnectNoteForm: state.isEdit
+        editItem: state.editItem
     }
 }
 // this.props.testConnectNoteForm

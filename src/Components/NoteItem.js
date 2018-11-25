@@ -7,7 +7,7 @@ class NoteItem extends Component {
         this.props.changeEditStatus();
         // console.log(this.props.note);
         // sau đó chuyển nội dung lên store để store update state, 
-        // xong đẩy vô form
+        // xong đẩy vô noteForm
         this.props.getEditItem(this.props.note);
         
     }
