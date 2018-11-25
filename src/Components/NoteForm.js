@@ -4,6 +4,9 @@ import {connect} from 'react-redux';
 class NoteForm extends Component {
     constructor(props) {
         super(props);
+        // this.state = {
+        //     editItem: this.props.editItem
+        // }
         
     }
     
@@ -23,7 +26,22 @@ class NoteForm extends Component {
         // this.props.getData(item);
         // this.props.addDataGetFromStore(JSON.stringify(item));
         this.props.addDataGetFromStore(item);
+        // console.log(JSON.stringify(item));
+
     }
+
+    
+    componentWillMount() {
+        console.log(this.props.editItem);
+        if (this.props.editItem) {
+            this.setState({
+                title: this.props.editItem.title,
+                content: this.props.editItem.content,
+                key: this.props.editItem.key
+            });
+        }
+    }
+    
 
     render() {
         return (
@@ -58,7 +76,7 @@ const mapStateToProps = (state, ownProps) => {
         editItem: state.editItem
     }
 }
-// this.props.testConnectNoteForm
+// this.props.editItem
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
