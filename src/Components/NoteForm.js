@@ -19,6 +19,7 @@ class NoteForm extends Component {
         item.title = title;
         item.content = content;
         console.log(item);  
+        this.props.getData(item);
     }
 
     render() {
