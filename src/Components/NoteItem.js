@@ -2,6 +2,16 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class NoteItem extends Component {
+
+    changeEditStatusAndFetchDataToForm = () => {
+        this.props.changeEditStatus();
+        // console.log(this.props.note);
+        // sau đó chuyển nội dung lên store để store update state, 
+        // xong đẩy vô form
+        this.props.getEditItem(this.props.note);
+        
+    }
+
     render() {
         return (
             <div className="card">
@@ -13,7 +23,7 @@ class NoteItem extends Component {
                         </a>
                     </h5>
                     <button className="btn btn-success float-right"
-                     onClick= {this.props.changeEditStatus}
+                        onClick= {() => this.changeEditStatusAndFetchDataToForm()}
                     >Edit</button>
                 </div>
                 <div id={'number' + this.props.ind} className="collapse in" role="tabpanel" aria-labelledby="section1HeaderId">
@@ -36,7 +46,10 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 	return {
 		changeEditStatus: () => {
 			dispatch({type: 'CHANGE_EDIT_STATUS'})
-		}
+        },
+        getEditItem: (editItem) => {
+			dispatch({type: 'GET_EDIT_ITEM', editItem})
+        }
 	}
 }
 

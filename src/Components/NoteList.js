@@ -40,7 +40,7 @@ class NoteList extends Component {
     }
 
     showData = () => {
-        console.log(this.state.noteData)
+        // console.log(this.state.noteData)
         if (this.state.noteData) {
             return (
                 this.state.noteData.map((value, key)=> {
@@ -50,6 +50,7 @@ class NoteList extends Component {
                             ind={value.key}
                             title={value.title}
                             content={value.content}
+                            note = {value}
                         />
                     ) 
                 })
