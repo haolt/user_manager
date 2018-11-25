@@ -47,6 +47,7 @@ class NoteList extends Component {
                     return (
                         <NoteItem 
                             key={value.key}
+                            ind={value.key}
                             title={value.title}
                             content={value.content}
                         />

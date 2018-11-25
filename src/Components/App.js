@@ -4,6 +4,7 @@ import Nav from './Nav';
 import NoteList from './NoteList';
 import NoteForm from './NoteForm';
 import { noteData } from './FirebaseConnect';
+import { connect } from 'react-redux';
 
 class App extends Component {
 	constructor(props) {
@@ -11,6 +12,11 @@ class App extends Component {
 	
 	}
 	
+	showForm = () => {
+		if (this.props.isEdit) {
+			return <NoteForm/>
+		}
+	}
 	// addData = (item) => {
 	// 	noteData.push(item);
 	// }
@@ -24,7 +30,8 @@ class App extends Component {
             		<div className="row">
 						<NoteList/>
 						{ /* <NoteForm getData= {(item) => this.addData(item)}/> */}
-						<NoteForm/>
+						{ /* <NoteForm/> */}
+						{ this.showForm() }
 					</div>
 				</div>
 			</div>
@@ -32,4 +39,18 @@ class App extends Component {
 	}
 }
 
-export default App;
+const mapStateToProps = (state, ownProps) => {
+	return {
+		isEdit: state.isEdit
+	}
+}
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+	return {
+		changeEditStatus: () => {
+			dispatch({type: 'CHANGE_EDIT_STATUS'})
+		}
+	}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

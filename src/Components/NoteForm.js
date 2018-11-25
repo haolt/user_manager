@@ -53,7 +53,7 @@ class NoteForm extends Component {
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        testConnectNoteForm: state.testConnect
+        testConnectNoteForm: state.isEdit
     }
 }
 // this.props.testConnectNoteForm

@@ -2,7 +2,7 @@ import { noteData } from './FirebaseConnect';
 var redux = require('redux');
 
 const noteInitialState = {
-    testConnect: "Connect with State Successfully"
+    isEdit: false
 };
 const allReducer = (state = noteInitialState, action) => {
     switch (action.type) {
@@ -10,6 +10,8 @@ const allReducer = (state = noteInitialState, action) => {
             // console.log('Connect with ADD_DATA Successfully' + action.storeItem );
             noteData.push(action.storeItem);
             return state
+        case 'CHANGE_EDIT_STATUS':
+            return {...state, isEdit: !state.isEdit}
         default:
             return state
     }
